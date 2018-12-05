@@ -227,15 +227,8 @@ public class InAppBrowser extends CordovaPlugin {
                     }
                     // BLANK - or anything else
                     else {
-                        LOG.d(LOG_TAG, "in blank");
-                           
-                        if(url.indexOf("https://einvoicelink.51fapiao.cn")!=-1){
-                            LOG.d(LOG_TAG, "in system");
-                            result = openExternal(url);
-                        }else{
-                            LOG.d(LOG_TAG, "in blank"); 
-                            result = showWebPage(url, features);
-                        }
+                        LOG.d(LOG_TAG, "in blank"); 
+                        result = showWebPage(url, features);
                     }
 
                     PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, result);
@@ -532,7 +525,11 @@ public class InAppBrowser extends CordovaPlugin {
         if (!url.startsWith("http") && !url.startsWith("file:")) {
             this.inAppWebView.loadUrl(url);
         } else {
-            this.inAppWebView.loadUrl(url);
+            if(url.indexOf("https://einvoicelink.51fapiao.cn")!=-1){
+                 openExternal(url);
+            }else{
+                 this.inAppWebView.loadUrl(url);
+            }
         }
         this.inAppWebView.requestFocus();
     }
