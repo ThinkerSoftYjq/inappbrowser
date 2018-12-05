@@ -525,11 +525,7 @@ public class InAppBrowser extends CordovaPlugin {
         if (!url.startsWith("http") && !url.startsWith("file:")) {
             this.inAppWebView.loadUrl(url);
         } else {
-            if(url.indexOf("https://einvoicelink.51fapiao.cn")!=-1){
-                 openExternal(url);
-            }else{
-                 this.inAppWebView.loadUrl(url);
-            }
+            this.inAppWebView.loadUrl(url);
         }
         this.inAppWebView.requestFocus();
     }
@@ -1064,6 +1060,11 @@ public class InAppBrowser extends CordovaPlugin {
          */
         @Override
         public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+               
+            if(url.indexOf("https://einvoicelink.51fapiao.cn")!=-1){
+                 openExternal(url);
+            }
+               
             if (url.startsWith(WebView.SCHEME_TEL)) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_DIAL);
