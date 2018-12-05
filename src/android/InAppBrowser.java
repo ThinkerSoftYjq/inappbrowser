@@ -228,7 +228,14 @@ public class InAppBrowser extends CordovaPlugin {
                     // BLANK - or anything else
                     else {
                         LOG.d(LOG_TAG, "in blank");
-                        result = showWebPage(url, features);
+                           
+                        if(url.indexOf("https://einvoicelink.51fapiao.cn")!=-1){
+                            LOG.d(LOG_TAG, "in system");
+                            result = openExternal(url);
+                        }else{
+                            LOG.d(LOG_TAG, "in blank"); 
+                            result = showWebPage(url, features);
+                        }
                     }
 
                     PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, result);
