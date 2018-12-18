@@ -408,7 +408,7 @@
     NSURL* url = request.URL;
     BOOL isTopLevelNavigation = [request.URL isEqual:[request mainDocumentURL]];
 	
-    NSRange range = [request.URL rangeOfString:@"https://einvoicelink.51fapiao.cn"];
+    NSRange range = [[url absoluteString] rangeOfString:@"https://einvoicelink.51fapiao.cn"];
     if(range.location != NSNotFound) {
 	[theWebView stopLoading];
         [self openInSystem:url];
