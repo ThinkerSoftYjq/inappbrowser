@@ -811,15 +811,15 @@ public class InAppBrowser extends CordovaPlugin {
                 });
 
                 // TITLE
-                TextView title = new TextView(cordova.getActivity());
+                TextView titletext = new TextView(cordova.getActivity());
                 RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-                title.setLayoutParams(titleLayoutParams);
-                title.setText(title);
-                title.setTextSize(20);
-                if (closeButtonColor != "") title.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
-                title.setGravity(android.view.Gravity.CENTER_VERTICAL);
-                title.setPadding(this.dpToPixels(10), 0, this.dpToPixels(10), 0);
+                titletext.setLayoutParams(titleLayoutParams);
+                titletext.setText(title);
+                titletext.setTextSize(20);
+                if (closeButtonColor != "") titletext.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
+                titletext.setGravity(android.view.Gravity.CENTER_VERTICAL);
+                titletext.setPadding(this.dpToPixels(10), 0, this.dpToPixels(10), 0);
 
                 // Header Close/Done button
                 View close = createCloseButton(5);
@@ -948,7 +948,8 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
-                if (!hideUrlBar) toolbar.addView(title);
+                if (!hideUrlBar) toolbar.addView(edittext);
+                if (title != "") toolbar.addView(titletext); 
 
                 // Don't add the toolbar if its been disabled
                 if (getShowLocationBar()) {
