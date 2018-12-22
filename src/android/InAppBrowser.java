@@ -816,6 +816,7 @@ public class InAppBrowser extends CordovaPlugin {
                 RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 titletext.setLayoutParams(titleLayoutParams);
+                titletext.setId(Integer.valueOf(8));
                 titletext.setText(title);
                 titletext.setTextSize(20);
                 if (closeButtonColor != "") titletext.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
