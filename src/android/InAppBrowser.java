@@ -789,7 +789,7 @@ public class InAppBrowser extends CordovaPlugin {
                 });
 
                 // Edit Text Box
-                edittext = new EditText(cordova.getActivity());
+                /*edittext = new EditText(cordova.getActivity());
                 RelativeLayout.LayoutParams textLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 textLayoutParams.addRule(RelativeLayout.RIGHT_OF, 1);
                 textLayoutParams.addRule(RelativeLayout.LEFT_OF, 5);
@@ -809,14 +809,14 @@ public class InAppBrowser extends CordovaPlugin {
                         }
                         return false;
                     }
-                });
+                });*/
 
                 // TITLE
                 TextView titletext = new TextView(cordova.getActivity());
                 RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 titletext.setLayoutParams(titleLayoutParams);
-                titletext.setId(Integer.valueOf(8));
+                titletext.setId(Integer.valueOf(4));
                 titletext.setText(title);
                 titletext.setTextSize(20);
                 if (closeButtonColor != "") titletext.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
@@ -950,7 +950,7 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
-                if (!hideUrlBar) toolbar.addView(edittext);
+                //if (!hideUrlBar) toolbar.addView(edittext);
                 if (title != "") toolbar.addView(titletext); 
 
                 // Don't add the toolbar if its been disabled
