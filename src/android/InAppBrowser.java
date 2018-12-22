@@ -107,7 +107,7 @@ public class InAppBrowser extends CordovaPlugin {
     private static final String FOOTER_COLOR = "footercolor";
     private static final String TITLE = "title";
 
-    private static final List customizableOptions = Arrays.asList(CLOSE_BUTTON_CAPTION, TOOLBAR_COLOR, NAVIGATION_COLOR, CLOSE_BUTTON_COLOR, FOOTER_COLOR,TITLE);
+    private static final List customizableOptions = Arrays.asList(CLOSE_BUTTON_CAPTION, TOOLBAR_COLOR, NAVIGATION_COLOR, CLOSE_BUTTON_COLOR, FOOTER_COLOR, TITLE);
 
     private InAppBrowserDialog dialog;
     private WebView inAppWebView;
@@ -812,7 +812,7 @@ public class InAppBrowser extends CordovaPlugin {
                 });*/
 
                 // TITLE
-                TextView titletext = new TextView(cordova.getActivity());
+                /*TextView titletext = new TextView(cordova.getActivity());
                 RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 titletext.setLayoutParams(titleLayoutParams);
@@ -821,7 +821,7 @@ public class InAppBrowser extends CordovaPlugin {
                 titletext.setTextSize(20);
                 if (closeButtonColor != "") titletext.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
                 titletext.setGravity(android.view.Gravity.CENTER_VERTICAL);
-                titletext.setPadding(this.dpToPixels(10), 0, this.dpToPixels(10), 0);
+                titletext.setPadding(this.dpToPixels(10), 0, this.dpToPixels(10), 0);*/
 
                 // Header Close/Done button
                 View close = createCloseButton(5);
@@ -951,7 +951,7 @@ public class InAppBrowser extends CordovaPlugin {
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
                 //if (!hideUrlBar) toolbar.addView(edittext);
-                if (title != "") toolbar.addView(titletext); 
+                //if (title != "") toolbar.addView(titletext); 
 
                 // Don't add the toolbar if its been disabled
                 if (getShowLocationBar()) {
