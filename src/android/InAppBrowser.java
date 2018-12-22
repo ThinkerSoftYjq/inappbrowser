@@ -106,7 +106,7 @@ public class InAppBrowser extends CordovaPlugin {
     private static final String FOOTER = "footer";
     private static final String FOOTER_COLOR = "footercolor";
 
-    private static final List customizableOptions = Arrays.asList(CLOSE_BUTTON_CAPTION, TOOLBAR_COLOR, NAVIGATION_COLOR, CLOSE_BUTTON_COLOR, FOOTER_COLOR);
+    private static final List customizableOptions = Arrays.asList(CLOSE_BUTTON_CAPTION, TOOLBAR_COLOR, NAVIGATION_COLOR, CLOSE_BUTTON_COLOR, FOOTER_COLOR,TITLE);
 
     private InAppBrowserDialog dialog;
     private WebView inAppWebView;
@@ -133,6 +133,7 @@ public class InAppBrowser extends CordovaPlugin {
     private boolean hideUrlBar = false;
     private boolean showFooter = false;
     private String footerColor = "";
+    private String title = "";
 
     /**
      * Executes the request and returns PluginResult.
@@ -626,6 +627,10 @@ public class InAppBrowser extends CordovaPlugin {
             String footerColorSet = features.get(FOOTER_COLOR);
             if (footerColorSet != null) {
                 footerColor = footerColorSet;
+            }            
+            String titleSet = features.get(TITLE);
+            if (titleSet != null) {
+                title = titleSet;
             }
         }
 
@@ -805,6 +810,16 @@ public class InAppBrowser extends CordovaPlugin {
                     }
                 });
 
+                // TITLE
+                TextView title = new TextView(cordova.getActivity());
+                RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+                titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+                title.setLayoutParams(titleLayoutParams);
+                title.setText(title);
+                title.setTextSize(20);
+                if (closeButtonColor != "") title.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
+                title.setGravity(android.view.Gravity.CENTER_VERTICAL);
+                title.setPadding(this.dpToPixels(10), 0, this.dpToPixels(10), 0);
 
                 // Header Close/Done button
                 View close = createCloseButton(5);
@@ -933,7 +948,7 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
-                if (!hideUrlBar) toolbar.addView(edittext);
+                if (!hideUrlBar) toolbar.addView(title);
 
                 // Don't add the toolbar if its been disabled
                 if (getShowLocationBar()) {
