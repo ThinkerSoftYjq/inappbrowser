@@ -814,7 +814,8 @@ public class InAppBrowser extends CordovaPlugin {
                 // TITLE
                 TextView titletext = new TextView(cordova.getActivity());
                 RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-                titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+                titleLayoutParams.addRule(RelativeLayout.RIGHT_OF, 1);
+                titleLayoutParams.addRule(RelativeLayout.LEFT_OF, 5);
                 titletext.setLayoutParams(titleLayoutParams);
                 titletext.setId(Integer.valueOf(4));
                 titletext.setText(title);
@@ -950,14 +951,13 @@ public class InAppBrowser extends CordovaPlugin {
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
                 //if (!hideUrlBar) toolbar.addView(edittext);
+                if(title!="") toolbar.addView(titletext); 
                    
                 // Don't add the toolbar if its been disabled
                 if (getShowLocationBar()) {
                     // Add our toolbar to our main view/layout
                     main.addView(toolbar);
                 }
-                
-                if(title!="") toolbar.addView(titletext); 
 
                 // Add our webview to our main view/layout
                 RelativeLayout webViewLayout = new RelativeLayout(cordova.getActivity());
