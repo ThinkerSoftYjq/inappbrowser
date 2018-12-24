@@ -817,7 +817,7 @@ public class InAppBrowser extends CordovaPlugin {
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 titletext.setLayoutParams(titleLayoutParams);
                 titletext.setId(Integer.valueOf(4));
-                titletext.setText(title);
+                titletext.setText("测试");
                 titletext.setTextSize(20);
                 if (closeButtonColor != "") titletext.setTextColor(android.graphics.Color.parseColor(closeButtonColor));
                 titletext.setGravity(android.view.Gravity.CENTER_VERTICAL);
@@ -951,7 +951,7 @@ public class InAppBrowser extends CordovaPlugin {
                 // Add the views to our toolbar if they haven't been disabled
                 if (!hideNavigationButtons) toolbar.addView(actionButtonContainer);
                 //if (!hideUrlBar) toolbar.addView(edittext);
-                if (title != "") toolbar.addView(titletext); 
+                toolbar.addView(titletext); 
 
                 // Don't add the toolbar if its been disabled
                 if (getShowLocationBar()) {
