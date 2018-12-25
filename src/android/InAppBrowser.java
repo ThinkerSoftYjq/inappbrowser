@@ -813,7 +813,7 @@ public class InAppBrowser extends CordovaPlugin {
 
                 // TITLE
                 TextView titletext = new TextView(cordova.getActivity());
-                RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+                RelativeLayout.LayoutParams titleLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
                 titleLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                 titletext.setLayoutParams(titleLayoutParams);
                 titletext.setId(Integer.valueOf(8));
